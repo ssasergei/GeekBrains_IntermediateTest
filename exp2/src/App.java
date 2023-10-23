@@ -1,32 +1,50 @@
-import Classes.Gift;
-import Classes.GiftQueue;
-import Classes.Logger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import Data.FilePromo;
+import Interface.iGetModel;
+import Interface.iGetView;
+import Model.ModelClassList;
+import Model.PromoToy;
+import Model.Toy;
+import View.ViewClass;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Logger logger = new Logger();
 
-        Gift g1 = new Gift("мишка", 5, 10);
-        Gift g2 = new Gift("зайка", 3, 7);
-        Gift g3 = new Gift("Соник", 2, 4);
-        Gift g4 = new Gift("слоник", 1, 1);
+        List<Toy> toys = new ArrayList<>();
+        FilePromo file = new FilePromo();
 
-        List<Gift> giftList = new ArrayList<Gift>();
+        Toy t1 = new Toy("Машинка", 10, 20);
+        Toy t2 = new Toy("Самолет", 5, 20);
+        Toy t3 = new Toy("Кукла", 7, 20);
+        Toy t4 = new Toy("Паровозик", 8, 20);
+      
 
-        giftList.add(g1);
-        giftList.add(g2);
-        giftList.add(g3);
-        giftList.add(g4);
+        toys.add(t1);
+        toys.add(t2);
+        toys.add(t3);
+        toys.add(t4);
 
-        GiftQueue giftQueue = new GiftQueue(giftList, logger);
 
-        for (int i = 0; i < 10; i++) {
-            giftQueue.get();
-        }
+        // iGetView view = new ViewClass();
+        // iGetModel modelList = new ModelClassList(toys);
 
-        while (giftQueue.hasReceiving()) {
-            System.out.println(giftQueue.receiveGift());
-        }
+        // System.out.println(modelList);
+
+        PromoToy promoToy  = new PromoToy(toys, file);
+
+        // for (int i = 0; i < 10; i++) {
+        //     promoToy.get();
+        // }
+
+        // while (promoToy.hasReceiving()) {
+            System.out.println(promoToy.receivetToy());
+        // }
+
+
+
+
+
     }
 }

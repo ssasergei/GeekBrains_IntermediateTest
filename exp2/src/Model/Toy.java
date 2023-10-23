@@ -1,37 +1,22 @@
-package Classes;
+package Model;
 
-/**
- * класс, описывающий игрушку
- */
-public class Gift {
-    /**
-     * идентификатор игрушки
-     */
+public class Toy {
+
     private int id;
-    /**
-     * счетчик для идентификаторов
-     */
     private static int generalId;
-    /**
-     * название игрушки
-     */
     private String name;
-    /**
-     * кол-во игрушек
-     */
     private int value;
-    /**
-     * частота выпадения игрушки
-     */
     private int weight;
 
-    public Gift(String name, int value, int weight) {
+    
+    public Toy(String name, int value, int weight) {
         this.id = generalId;
         generalId++;
         this.name = name;
         this.value = value;
         this.weight = weight;
     }
+
 
     public int getId() {
         return id;
@@ -64,14 +49,18 @@ public class Gift {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-
-    public void lowerValue() {
-        this.value--;
+    
+    public void lower() {
+        this.weight--;
     }
+    
+
 
     @Override
     public String toString() {
-        return "Gift [id=" + id + ", name=" + name + ", value=" + value + ", weight=" + weight + "]";
+        return "Toy:[id=" + id + ", name=" + name + ", value=" + value + ", weight=" + weight + "]"  ;
     }
 
+  
+    
 }
